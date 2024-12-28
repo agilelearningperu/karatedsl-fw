@@ -1,0 +1,11 @@
+{
+  "firstname" : "#(nombre)",
+  "lastname" : "#(apellidos)",
+  "totalprice" : #(parseInt(precio)),
+  "depositpaid" : #(deposito === 'true'),
+  "bookingdates" : {
+    "checkin" : "#(fecha_inicio)",
+    "checkout" : "#(fecha_fin)"
+  },
+  "additionalneeds" : "#(adicional)"
+}
