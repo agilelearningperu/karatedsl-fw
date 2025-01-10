@@ -1,0 +1,93 @@
+openapi: 3.0.0
+info:
+  title: Booking API
+  description: API for creating bookings
+  version: 1.0.0
+servers:
+  - url: https://restful-booker.herokuapp.com
+paths:
+  /booking:
+    post:
+      summary: Create a new booking
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                firstname:
+                  type: string
+                  example: Jim
+                lastname:
+                  type: string
+                  example: Brown
+                totalprice:
+                  type: integer
+                  example: 111
+                depositpaid:
+                  type: boolean
+                  example: true
+                bookingdates:
+                  type: object
+                  properties:
+                    checkin:
+                      type: string
+                      format: date
+                      example: 2018-01-01
+                    checkout:
+                      type: string
+                      format: date
+                      example: 2019-01-01
+                additionalneeds:
+                  type: string
+                  example: Breakfast
+      responses:
+        '200':
+          description: Booking created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  bookingid:
+                    type: integer
+                    example: 1
+                  booking:
+                    type: object
+                    properties:
+                      firstname:
+                        type: string
+                        example: Jim
+                      lastname:
+                        type: string
+                        example: Brown
+                      totalprice:
+                        type: integer
+                        example: 111
+                      depositpaid:
+                        type: boolean
+                        example: true
+                      bookingdates:
+                        type: object
+                        properties:
+                          checkin:
+                            type: string
+                            format: date
+                            example: 2018-01-01
+                          checkout:
+                            type: string
+                            format: date
+                            example: 2019-01-01
+                      additionalneeds:
+                        type: string
+                        example: Breakfast
+      headers:
+        Content-Type:
+          schema:
+            type: string
+            example: application/json
+        Accept:
+          schema:
+            type: string
+            example: application/json
